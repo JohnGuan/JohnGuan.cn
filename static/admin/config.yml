@@ -1,0 +1,27 @@
+backend:
+  name: git-gateway
+  branch: main
+media_folder: "static/img/uploads"
+collections:
+  - label: "Blog" # Used in the UI
+    name: "blog" # Used in routes, e.g., /admin/collections/blog
+    folder: "blog" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "string", required: false}
+      - {label: "Slug", name: "slug", widget: "string", default: "{{slug}}"}
+      - label: "Authors"
+        name: "authors"
+        widget: "list"
+          fields:
+          - {label: "Name", name: "name", widget: "string"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "URL", name: "url", widget: "string"}
+          - {label: "Image URL", name: "image_url", widget: "string"}
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
+      - {Label: "Tags", name: "tags", widget: "list", required: false}
+      - {label: "Is Draft?", name: "draft", widget: "boolean", default: false}
+      - {label: "Hide Table of Contents?", name: "hide_table_of_contents", widget: "boolean", default: false}
+      - {label: "Content", name: "body", widget: "markdown"}
