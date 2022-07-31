@@ -2,9 +2,27 @@ backend:
   name: github
   branch: main
   repo: JohnGuan/JohnGuan.cn
+
 media_folder: "static/img/uploads"
 public_folder: "/img/uploads"
+
 collections:
+  - label: "Info"
+    name: "info"
+    files:
+      - label: "Authors"
+        name: "authors"
+        file: "authors.yml"
+        fields:
+          - label: "Author"
+            name: "authors"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "URL", name: "url", widget: "string"}
+              - {label: "Image URL", name: "image_url", widget: "string"}
   - label: "Blog" # Used in the UI
     name: "blog" # Used in routes, e.g., /admin/collections/blog
     folder: "blog" # The path to the folder where the documents are stored
@@ -16,8 +34,9 @@ collections:
       - {label: "Slug", name: "slug", widget: "string", default: "{{slug}}"}
       - label: "Authors"
         name: "authors"
-        widget: "list"
-          fields:
+        widget: "object"
+        summary: "{{fields.name}}"
+        fields:
           - {label: "Name", name: "name", widget: "string"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "URL", name: "url", widget: "string"}
