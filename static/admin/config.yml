@@ -1,7 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
   branch: main
+  repo: JohnGuan/JohnGuan.cn
 media_folder: "static/img/uploads"
+public_folder: "/img/uploads"
 collections:
   - label: "Blog" # Used in the UI
     name: "blog" # Used in routes, e.g., /admin/collections/blog
