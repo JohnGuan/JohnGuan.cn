@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager</title>
 </head>
-<script>
-  if (window.location.hostname.endsWith("johnguan.cn")) {
-    window.location.hostname = "johnguan-cn.netlify.app";
-  }
-</script>
 <body>
+  <script>
+    if (window.location.hostname.endsWith("johnguan.cn")) {
+      console.log("Redirecting to editing site...");
+      window.location.hostname = "johnguan-cn.netlify.app";
+    }
+  </script>
   <!-- Include the script that builds the page and powers Netlify CMS -->
   <script src="https://cdn.jsdelivr.net/npm/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
 </body>
